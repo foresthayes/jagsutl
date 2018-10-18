@@ -52,3 +52,8 @@ md_model_settings <- function(x){
 #   md_trace() %>%
 #   md_result_table() %>%
 #   md_model_settings()
+
+# NOTE: in markdown use chunk options: echo = F, results = 'asis'
+
+
+
