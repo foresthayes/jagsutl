@@ -1,4 +1,4 @@
-# Functions require:
+# Functions require the following packages:
 # MCMCvis
 # knitr
 # kableExtra
