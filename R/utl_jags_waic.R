@@ -1,13 +1,15 @@
 #' Calcualte WAIC for a jags model using rjags
 #'
+#' Model paremeters follow the same naming conventions as R2jags and jags UI.
+#'
 #' @param data
+#' @param parameters.to.save
+#' @param model.file
+#' @param n.chains
+#' @param n.burnin
+#' @param n.iter
+#' @param n.thin
 #' @param inits
-#' @param parms
-#' @param model
-#' @param chains
-#' @param burnin
-#' @param iter
-#' @param thin
 #'
 #' @return
 #' @export
@@ -15,32 +17,34 @@
 #' @examples
 
 utl_jags_waic <- function(
-  data,
-  inits,
-  parms,
-  model,
-  chains,
-  burnin,
-  iter,
-  thin){
+                          data,
+                          inits,
+                          parameters.to.save,
+                          model.file,
+                          n.chains,
+                          n.burnin,
+                          n.iter,
+                          n.thin){
+
+  parameters.to.save <- c("deviance", "WAIC")
 
   rjags::load.module("dic")
 
   m <- rjags::jags.model(
-    model,
+    model.file,
     data,
     inits,
-    chains
+    n.chains
   )
 
-  update(m, burnin)
+  update(m, n.burnin)
 
   s <- rjags::jags.samples(
     m,
-    parms,
+    parameters.to.save,
     type = "mean",
-    iter,
-    thin
+    n.iter,
+    n.thin
   )
 
   tmp <- s %>%

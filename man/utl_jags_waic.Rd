@@ -4,11 +4,12 @@
 \alias{utl_jags_waic}
 \title{Calcualte WAIC for a jags model using rjags}
 \usage{
-utl_jags_waic(data, inits, parms, model, chains, burnin, iter, thin)
+utl_jags_waic(data, inits, parameters.to.save, model.file, n.chains,
+  n.burnin, n.iter, n.thin)
 }
 \arguments{
-\item{thin}{}
+\item{inits}{}
 }
 \description{
-Calcualte WAIC for a jags model using rjags
+Model paremeters follow the same naming conventions as R2jags and jags UI.
 }
