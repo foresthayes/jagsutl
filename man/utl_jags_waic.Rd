@@ -4,8 +4,8 @@
 \alias{utl_jags_waic}
 \title{Calcualte WAIC for a jags model using rjags}
 \usage{
-utl_jags_waic(data, inits, parameters.to.save, model.file, n.chains,
-  n.burnin, n.iter, n.thin)
+utl_jags_waic(data, inits, parameters.to.save, model.file, n.chains, n.burnin,
+  n.iter, n.thin)
 }
 \arguments{
 \item{inits}{}

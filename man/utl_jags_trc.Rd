@@ -4,18 +4,27 @@
 \alias{utl_jags_trc}
 \title{A simple wrapper for MCMC trace to produce jags graphcs in Rmarkdown}
 \usage{
-utl_jags_trc(x)
+utl_jags_trc(x, ..., excl = "deviance", ind = T, pdf = F)
 }
 \arguments{
 \item{x}{An object of class rjags (from R2jags) or jagsUI}
 }
 \value{
-returns trace plots of tracked parameters without deviance
+Returns trace plots of tracked parameters
 }
 \description{
 A simple wrapper for MCMC trace to produce jags graphcs in Rmarkdown
 }
 \examples{
 jags_result \%>\% util_jags_trc()
+
+# plot only density
+jags_result \%>\% utl_jags_trc(type = "density")
+
+# produce a PDF
+jags_result \%>\% utl_jags_trc(pdf = T)
+
+# Exclude b0.p from the plots
+jags_result \%>\% utl_jags_trc(excl = "b0.p")
 
 }
