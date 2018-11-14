@@ -26,7 +26,7 @@ MCMCvis::MCMCtrace(
   ...,
   params = params,
   excl = excl,
-  ind = ind
+  ind = ind,
   pdf = pdf
 )
 return(invisible(x))
